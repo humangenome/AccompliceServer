@@ -9,7 +9,7 @@
 
 [Probably Stolen](https://store.steampowered.com/app/4348910/) has no multiplayer. Accomplice adds online co-op: 2 to 4 friends run one shop together on a Probably Stolen dedicated server. This repo is that server.
 
-![Two players in one shop: the player list top right, their chat bottom left](docs/images/two-players-one-shop.jpg)
+![Two players in one shop, with the player list and the chat magnified](docs/images/two-players-one-shop.jpg)
 
 ## Rent a server
 
