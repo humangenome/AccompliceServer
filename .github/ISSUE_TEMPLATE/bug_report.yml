@@ -1,0 +1,92 @@
+name: Bug report
+description: Something in AccompliceServer or the Accomplice mod is broken
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. The server and the player mod are the same file, so both belong here. Please make sure this is about Accomplice itself, not your hosting provider's control panel, billing or support.
+
+  - type: input
+    id: accomplice-version
+    attributes:
+      label: Accomplice version
+      placeholder: "e.g. v0.1.1 (the server's log prints it on start)"
+    validations:
+      required: true
+
+  - type: input
+    id: game-build
+    attributes:
+      label: Probably Stolen build (Steam build ID if known)
+      placeholder: "e.g. build 1234567"
+
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where does it happen?
+      options:
+        - On the server
+        - In a player's game
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Host OS (if it happens on the server)
+      placeholder: "e.g. Windows Server 2022, Windows 11 Pro 24H2"
+
+  - type: dropdown
+    id: hosting
+    attributes:
+      label: How is this server run?
+      options:
+        - I run the machine myself
+        - I rent it from a host
+        - I am a player on someone else's server
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Be specific. Exact commands, the settings you changed, and what the players did.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        Paste or attach the relevant excerpts from the server's log (the -logFile path) and, for a player's problem, that player's game log. Redact passwords and addresses you would rather not publish.
+      render: text
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmations
+      options:
+        - label: I've searched existing issues for a duplicate
+          required: true
+        - label: This is an Accomplice bug, not a hosting-provider support request
+          required: true
+        - label: I've removed passwords and anything else private from the logs I attached
+          required: true
