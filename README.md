@@ -51,6 +51,10 @@ You need a Windows PC that players can reach (a public IP and one open TCP port,
 
 Scenario, difficulty, voice chat, saves and backups: [docs/settings.md](docs/settings.md). Commands and status: [docs/status-and-commands.md](docs/status-and-commands.md).
 
+## Server list
+
+Every Accomplice server shows up in the in-game server list by itself, with its name, players and day. The address is public, so set a password if the shop is only for your group: password servers show a lock, and the list never shows player names. Servers on another version are listed too, dimmed.
+
 ## Updating
 
 Download the new zip from [Releases](https://github.com/HumanGenome/AccompliceServer/releases/latest) and unzip it over the old files. Players and the server need the same version; if they don't match, the Join window says what to update.

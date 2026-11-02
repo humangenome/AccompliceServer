@@ -6,11 +6,29 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.1.5] - 2026-11-02
+
+### Server
+
+#### Added
+
+- The server shows up in the in-game server list by itself, with its name, players and day, for as long as it answers.
+- Joining players get the list of mods the server runs.
+
+#### Changed
+
+- At most 4 players.
+
 ### Client
+
+#### Added
+
+- Find a server: a list of public Accomplice servers in the Join window. Servers on another version are shown dimmed, with what to update.
+- A warning when you join with mods the server doesn't run.
 
 #### Fixed
 
-- A long server name under Recent servers no longer runs past the edges of the Join window.
+- Long server names fit the Recent servers list.
 
 ## [0.1.1] - 2026-11-01
 
