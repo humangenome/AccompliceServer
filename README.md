@@ -38,7 +38,7 @@ If you would rather not run the machine, [SurvivalServers.com](https://www.survi
 
 ## Requirements
 
-| | |
+| Need | Details |
 |---|---|
 | OS | Windows 10, Windows 11, or Windows Server |
 | Game | Probably Stolen installed with Steam on the machine, and the Steam client running and signed in to an account that owns the game while the server runs |
