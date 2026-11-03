@@ -6,6 +6,20 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.1.6] - 2026-11-02
+
+### Server
+
+#### Changed
+
+- The server reports itself to the in-game server list at a new address. Servers on 0.1.5 keep being listed.
+
+### Client
+
+#### Changed
+
+- Find a server reads the server list from a new address. Players on 0.1.5 still see the list.
+
 ## [0.1.5] - 2026-11-02
 
 ### Server
