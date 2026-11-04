@@ -6,6 +6,14 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-11-04
+
+### Client
+
+#### Changed
+
+- Server list replaces Find a server. It's one bigger list with the servers you joined before at the top, and clicking a server joins it. Chinese names no longer go blank in the Join window.
+
 ## [0.2.2] - 2026-11-04
 
 ### Client
