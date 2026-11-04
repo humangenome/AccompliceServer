@@ -6,6 +6,14 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.4] - 2026-11-04
+
+### Client
+
+#### Added
+
+- The main menu now tells you when a new version of Accomplice is out, and when it's downloaded and needs a game restart.
+
 ## [0.2.3] - 2026-11-04
 
 ### Client
