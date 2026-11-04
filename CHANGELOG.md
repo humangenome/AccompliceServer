@@ -6,6 +6,29 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-03
+
+### Server
+
+#### Added
+
+- The server's mods are the set every player runs. A player missing one, or with another copy of it, is turned away with the list of mods they need.
+- `mods` in server.json: each mod's Workshop id, so players get a button to its Workshop page.
+- `modsMustMatch` in server.json: also turn away players who run mods the server does not. Off by default: those players join with a warning.
+- Players on the game's Steam beta are turned away when the server runs a different build, with the steps to switch back. Any other build difference joins with a warning.
+
+#### Changed
+
+- A server that runs other mods asks players on 0.1.6 or older to update. Servers with no other mods still take them.
+- When a player's shop keeps disagreeing with the server in the same way, the server stops reloading it after three tries and tells the player why. The server log names the part that differs.
+
+### Client
+
+#### Added
+
+- Mods for this server: when a server turns you away over mods, a window lists them with a button to each mod's Workshop page, counts how many Steam has downloaded, and says how to turn them on.
+- A warning when the server runs a different build of the game.
+
 ## [0.1.6] - 2026-11-02
 
 ### Server
