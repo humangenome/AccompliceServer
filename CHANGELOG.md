@@ -6,6 +6,14 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-11-04
+
+### Client
+
+#### Changed
+
+- Clearer server list and mods window. Find a server now shows where each server is and how many mods it runs. The mods window lists each mod with its status and the steps numbered one at a time.
+
 ## [0.2.1] - 2026-11-03
 
 ### Server
