@@ -9,7 +9,14 @@
 
 [Probably Stolen](https://store.steampowered.com/app/4348910/) has no multiplayer. Accomplice adds online co-op: 2 to 4 friends run one shop together on a Probably Stolen dedicated server. This repo is that server.
 
-![Two players in one shop, with the player list and the chat magnified](docs/images/two-players-one-shop.jpg)
+![How it plays: friends join your shop, one works the counter, the rest help out back, talk on voice or chat, ready up for the night](docs/images/how-it-plays.jpg)
+
+<p>
+  <img src="docs/images/haggle-together.jpg" width="49%" alt="Theo haggles with a merchant while Mara's chat lines show in the corner">
+  <img src="docs/images/crew-report.jpg" width="49%" alt="The crew report after day 1: what Theo and Mara each did">
+  <img src="docs/images/nights-out.jpg" width="49%" alt="A night out at Dr. Jackson's: the player list shows who is haggling">
+  <img src="docs/images/play-with-your-mods.jpg" width="49%" alt="The Mods for this server window lists a missing mod with its Workshop page button">
+</p>
 
 ## Rent a server
 
@@ -24,7 +31,7 @@ Every player needs their own copy of Probably Stolen.
 
    ![The game's Mods window with Accomplice selected](docs/images/mods-activate.png)
 
-3. Click **Join server** on the main menu, type the server's address and password, and click **Join**.
+3. Click **Join server** on the main menu, then **Server list**, and click a server to join it. Or type the server's address and password and click **Join**.
 
    <img src="docs/images/join-server.png" width="440" alt="The Join server window">
 
@@ -53,11 +60,15 @@ Scenario, difficulty, voice chat, saves and backups: [docs/settings.md](docs/set
 
 ## Server list
 
-Every Accomplice server shows up in the in-game server list by itself, with its name, players and day. The address is public, so set a password if the shop is only for your group: password servers show a lock, and the list never shows player names. Servers on another version are listed too, dimmed.
+Every Accomplice server shows up in the in-game server list by itself, with its name, players and day, and players click a server to join it. The address is public, so set a password if the shop is only for your group: password servers show a lock, and the list never shows player names. Servers on another version are listed too, dimmed.
+
+![The in-game Server list](docs/images/server-list.png)
 
 ## Updating
 
-Download the new zip from [Releases](https://github.com/HumanGenome/AccompliceServer/releases/latest) and unzip it over the old files. Players and the server need the same version; if they don't match, the Join window says what to update.
+Download the new zip from [Releases](https://github.com/HumanGenome/AccompliceServer/releases/latest) and unzip it over the old files. Players' copies of the mod update through Steam and don't have to match the server's version exactly; when one can't join, the Join window says what to update.
+
+When Probably Stolen itself updates, update the game on the server PC too: players and the server need the same game version.
 
 ## License
 

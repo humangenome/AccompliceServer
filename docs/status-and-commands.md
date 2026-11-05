@@ -4,7 +4,15 @@ How a script or a control panel watches and runs an AccompliceServer: the status
 
 **Status check.** Connect to the server's port over TCP and send the line `STATUS`. The server answers one line of JSON and closes the connection, even while the shop is loading. Anyone who can reach the port can ask, so the answer leaves out the data folder and the last save time, and on a server with a password it leaves out player names but still gives the number of players.
 
-**Commands.** Add a line to `commands.txt` in the data folder. The server reads the file once a second, runs each line, empties the file and logs `[Accomplice] command: <line> -> <result>`. The commands are listed in the [README](../README.md#status-and-commands).
+**Commands.** Add a line to `commands.txt` in the data folder. The server reads the file once a second, runs each line, empties the file and logs `[Accomplice] command: <line> -> <result>`.
+
+| Command | What it does |
+|---|---|
+| `say <text>` | Sends a chat line to every player, shown as "Server owner: <text>" |
+| `kick <player id or name>` | Removes a player from the server; they can join again |
+| `save` | Saves the shop now, or at the next morning if a day is in progress (the game saves only between days) |
+| `newrun` | Starts a new run, only after a run has ended |
+| `newrun force` | Starts a new run now, whatever the state of the current one |
 
 A line the server does not know logs `-> unknown command` and does nothing.
 
