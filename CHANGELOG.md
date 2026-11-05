@@ -6,6 +6,14 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.5] - 2026-11-04
+
+### Server
+
+#### Changed
+
+- A player whose copy of a mod is not the same as the server's now joins with a warning, instead of being turned away. A player missing one of the server's mods is still turned away, and so is any different copy when Players must have exactly these mods is on.
+
 ## [0.2.4] - 2026-11-04
 
 ### Client
