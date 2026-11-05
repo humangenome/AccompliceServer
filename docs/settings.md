@@ -37,7 +37,7 @@ The server reads the `server.json` named by `--br-config`. This example holds ev
 | `readyTimeoutSeconds` | How long the server waits after the first player is ready before it starts the night, or after the first vote for a new run |
 | `frameRate` | The server's frames per second (1 to 60) |
 | `voice` | Voice chat on this server; `false` turns it off for every player |
-| `modsMustMatch` | `true` also turns away players who run mods the server does not; `false` lets them join with a warning |
+| `modsMustMatch` | `true` also turns away players who run mods the server does not, or another copy of one of its mods; `false` lets them join with a warning |
 | `mods` | Each of your other mods' Workshop ids, `[ { "id": "<mod ID from its manifest.xml>", "ws": "<Workshop id>" } ]`, so a player who lacks one gets a button to its Workshop page |
 
 `newRun` and `endless` are used when the save in `saveSlot` does not exist yet and whenever a new run starts. The server reads them from the file again at that moment, so you can change them while it runs.
