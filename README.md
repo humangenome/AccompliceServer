@@ -70,7 +70,7 @@ Every Accomplice server shows up in the in-game server list by itself, with its 
 
 ## Updating
 
-Download the new zip from [Releases](https://github.com/HumanGenome/AccompliceServer/releases/latest) and unzip it over the old files. Players' copies of the mod update through Steam and don't have to match the server's version exactly; when one can't join, the Join window says what to update.
+Download the new zip from [Releases](https://github.com/HumanGenome/AccompliceServer/releases/latest) and unzip it over the old files. Players' copies of the mod update through Steam and don't have to match the server's version exactly; when one can't join, the Join window says what to update. Each release's notes link a VirusTotal scan of its mod file.
 
 When Probably Stolen itself updates, update the game on the server PC too: players and the server need the same game version.
 
