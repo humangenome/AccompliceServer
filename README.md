@@ -35,6 +35,10 @@ Every player needs their own copy of Probably Stolen.
 
    <img src="docs/images/join-server.png" width="440" alt="The Join server window">
 
+   To invite a friend, press Esc on the server and click **Copy invite**: it copies the address, never the password.
+
+The mod's windows follow the game's language (Chinese and Russian so far; English otherwise).
+
 ## Host your own
 
 You need a Windows PC that players can reach (a public IP and one open TCP port, 27700 by default) with Probably Stolen installed and Steam signed in.

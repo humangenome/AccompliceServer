@@ -6,6 +6,20 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.7] - 2026-11-05
+
+### Server
+
+#### Fixed
+
+- The server clears what the last phone call left behind before each morning, so players are no longer reloaded every morning after a call.
+
+### Client
+
+#### Added
+
+- Players also get a Copy invite button in the pause menu and the mod's texts in Chinese and Russian.
+
 ## [0.2.6] - 2026-11-05
 
 ### Server
