@@ -16,6 +16,7 @@ The server reads the `server.json` named by `--br-config`. This example holds ev
   },
   "endless": false,
   "readyTimeoutSeconds": 120,
+  "extraCustomersPerPlayer": 0.5,
   "frameRate": 10,
   "voice": true,
   "modsMustMatch": false,
@@ -35,6 +36,7 @@ The server reads the `server.json` named by `--br-config`. This example holds ev
 | `newRun.skipIntro` | Skips the game's intro in a new run |
 | `endless` | The game's Endless mode, for a new run |
 | `readyTimeoutSeconds` | How long the server waits after the first player is ready before it starts the night, or after the first vote for a new run |
+| `extraCustomersPerPlayer` | Extra customers for each player beyond the first, as a share of the day's customers (0 to 2). With 0.5, 2 players and 6 customers queued get 3 more. At most 6 more a day, none on a new run's first day (or its first 13 with the intro on). 0 keeps the game's own number. Works only when every player runs 0.2.8 or newer |
 | `frameRate` | The server's frames per second (1 to 60) |
 | `voice` | Voice chat on this server; `false` turns it off for every player |
 | `modsMustMatch` | `true` also turns away players who run mods the server does not, or another copy of one of its mods; `false` lets them join with a warning |

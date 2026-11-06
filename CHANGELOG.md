@@ -6,6 +6,28 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.8] - 2026-11-06
+
+### Server
+
+#### Added
+
+- More players bring more customers: each player beyond the first adds half the day's customers again, at most 6 more a day, from day 2 of a new run (day 14 with the intro on). The new `extraCustomersPerPlayer` setting changes the share or turns it off. It works when every player runs 0.2.8 or newer; on a day with extra customers, an older player is asked to update.
+
+#### Changed
+
+- If the player at the counter does nothing for 30 seconds while another player wants it, the counter frees up (it was 60 seconds).
+
+### Client
+
+#### Added
+
+- The Server list shows which version each server runs.
+
+#### Fixed
+
+- Picking a backpack (or no backpack) at the shop door opens the map. Before, it reloaded the game, so nobody could go out at night.
+
 ## [0.2.7] - 2026-11-05
 
 ### Server
