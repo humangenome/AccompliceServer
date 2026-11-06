@@ -6,6 +6,14 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.6] - 2026-11-05
+
+### Server
+
+#### Changed
+
+- The server log now shows why a player's shop reloaded and which items were out of place, and a move overtaken by the same player's earlier move gets its own notice.
+
 ## [0.2.5] - 2026-11-04
 
 ### Server
