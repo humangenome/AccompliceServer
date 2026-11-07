@@ -6,6 +6,23 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.9] - 2026-11-07
+
+### Server
+
+#### Fixed
+
+- Runs on the game's 1.0.0.12 update (Steam build 26496118) as well as the previous one.
+
+### Client
+
+#### Fixed
+
+- After the game's 1.0.0.12 update the day can end again and players can go out at night. Before, once anyone had opened the map, "I'm ready" flipped back and the sleeping bag did nothing (#1).
+- A player whose game runs in another language no longer gets their shop reloaded during water deals.
+- The game's new options, Move Bought Items to Inventory and Disable Pop Culture Characters, follow the server, so every player's shop stays the same.
+- Putting the shotgun away keeps Lou, Eleanor and Serpico talking, as the game now does.
+
 ## [0.2.8] - 2026-11-06
 
 ### Server
