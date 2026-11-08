@@ -10,13 +10,13 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ### Server
 
-#### Fixed
-
-- A server that runs in another language than English (its language comes from an uploaded SaveFile.es3) no longer has customers refuse every labeled water. The game fixes six water names when it starts and compares each bottle's name in the current language with them; the server took them in English before it switched language. It now takes them in the language it runs and puts any water label written in another language (a run made in another language) into it.
-
 #### Changed
 
 - Players on Accomplice older than 0.2.11 are asked to restart Steam so it updates before they join (was 0.2.9).
+
+#### Fixed
+
+- A server that runs in another language than English (its language comes from an uploaded SaveFile.es3) no longer has customers refuse every labeled water. The game fixes six water names when it starts and compares each bottle's name in the current language with them; the server took them in English before it switched language. It now takes them in the language it runs and puts any water label written in another language (a run made in another language) into it.
 
 ### Client
 
