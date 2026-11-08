@@ -6,6 +6,21 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.10] - 2026-11-07
+
+### Server
+
+#### Changed
+
+- Players on Accomplice older than 0.2.9 are turned away at join with a sentence telling them to restart Steam to get the Workshop update. A 0.2.8 player on the game's 1.0.0.12 update could not follow a night out and kept reloading.
+- The server log's join line names the player's Accomplice version.
+
+### Client
+
+#### Fixed
+
+- A shop that falls out of step during a deal asks the server to put it right on a PC that has been running for 25 days or more. Before, it never asked there.
+
 ## [0.2.9] - 2026-11-07
 
 ### Server
