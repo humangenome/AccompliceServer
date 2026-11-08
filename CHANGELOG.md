@@ -6,6 +6,25 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.11] - 2026-11-08
+
+### Server
+
+#### Fixed
+
+- A server that runs in another language than English (its language comes from an uploaded SaveFile.es3) no longer has customers refuse every labeled water. The game fixes six water names when it starts and compares each bottle's name in the current language with them; the server took them in English before it switched language. It now takes them in the language it runs and puts any water label written in another language (a run made in another language) into it.
+
+#### Changed
+
+- Players on Accomplice older than 0.2.11 are asked to restart Steam so it updates before they join (was 0.2.9).
+
+### Client
+
+#### Fixed
+
+- Sending away the returning customer who opens a case at your counter no longer leaves the shop reloading for every player until the next morning. Only the server runs the case opening now, so every player sees the same items and gets the same Glass Shiv.
+- A player whose game runs in another language than the server can use machine buttons (for example Print Small Bottle). The server compared the button's translated label with its own and turned the press away with "That control is not there any more."; the player's game now sends its language, and the label is only compared when both match.
+
 ## [0.2.10] - 2026-11-07
 
 ### Server
