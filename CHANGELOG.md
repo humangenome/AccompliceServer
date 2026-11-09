@@ -6,6 +6,26 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.12] - 2026-11-09
+
+### Server
+
+#### Added
+
+- The log names the items that differ when a player's shop doesn't match the server's after loading, and what differs in a player's bag after a night out.
+
+#### Fixed
+
+- Reload loops: a player whose game keeps loading a few items differently is reloaded at most once every 5 minutes, not after every action.
+- Players loading a big save were kicked after 30 seconds. Loading players now get 2 minutes.
+
+### Client
+
+#### Changed
+
+- Sends its item counts after loading, and its bag after a night out, for the server's log. 0.2.11 servers ignore them.
+- Waits 2 minutes for the server while loading, instead of 30 seconds.
+
 ## [0.2.11] - 2026-11-08
 
 ### Server
