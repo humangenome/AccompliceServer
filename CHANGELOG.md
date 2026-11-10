@@ -6,6 +6,16 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.13] - 2026-11-09
+
+### Client
+
+#### Added
+
+- When the server turns down something you pressed, you now see why.
+- If one of your mods breaks a machine's buttons, you're told once which mod and how to fix it.
+- If your microphone sends silence, you get a one-time hint on what to check.
+
 ## [0.2.12] - 2026-11-09
 
 ### Server
