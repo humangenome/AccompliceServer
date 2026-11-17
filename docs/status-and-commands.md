@@ -9,14 +9,14 @@ How a script or a control panel watches and runs an AccompliceServer: the status
 | Command | What it does |
 |---|---|
 | `say <text>` | Sends a chat line to every player, shown as "Server owner: <text>" |
-| `kick <player id or name>` | Removes a player from the server; they can join again |
+| `kick <player id or name>` | Kicks a player from the server. They can join again |
 | `save` | Saves the shop now, or at the next morning if a day is in progress (the game saves only between days) |
 | `newrun` | Starts a new run, only after a run has ended |
 | `newrun force` | Starts a new run now, whatever the state of the current one |
 
-A line the server does not know logs `-> unknown command` and does nothing.
+A line the server doesn't know logs `-> unknown command` and does nothing.
 
-**Status file.** The server rewrites `status.json` in the data folder every 10 seconds, and whenever a player joins or leaves, the shop saves, the day changes or a run ends. It holds the server's state (loading, running, ended or stopping), its name, the players on (id and name), the player limit, the day, cash, scenario, the ending if the run ended, the time of the last save, the mod, protocol and game versions, and the data folder. It is written to `status.json.tmp` first and then swapped in, so a reader never sees half a file. It never leaves the machine.
+**Status file.** The server rewrites `status.json` in the data folder every 10 seconds, and whenever a player joins or leaves, the shop saves, the day changes or a run ends. It holds the server's state (loading, running, ended or stopping), its name, the players on (id and name), the player limit, the day, cash, scenario, the ending if the run ended, the time of the last save, the mod, protocol and game versions, and the data folder. It's written to `status.json.tmp` first and then swapped in, so a reader never sees half a file. It never leaves the server PC.
 
 **Stopping.** Create an empty file named `stop` in the data folder. The server notices within a second, saves if nobody has opened the shop today, closes the port, removes the file and exits within a few seconds. The game saves only between days: if a day is in progress, the shop goes back to that morning's save on the next start. Ending the process by force does the same.
 
@@ -25,8 +25,8 @@ A line the server does not know logs `-> unknown command` and does nothing.
 | Line | Means |
 |---|---|
 | `[Accomplice] server: listening on TCP <port>` | Players can connect |
-| `[Accomplice] server: could not listen on TCP <port>` | Another program has the port; the server stops |
-| `[Accomplice] server: could not open the save` | The save would not load; the server stops |
+| `[Accomplice] server: could not listen on TCP <port>` | Another program is using the port, and the server stops |
+| `[Accomplice] server: could not open the save` | The save wouldn't load, and the server stops |
 | `[Accomplice] server: run ended (<ending>)` | The run ended |
 | `[Accomplice] server: new run started (<scenario>)` | A new run began |
 | `[Accomplice] command: <line> -> <result>` | One per `commands.txt` line |

@@ -20,7 +20,7 @@
 
 ## Rent a server
 
-[SurvivalServers.com](https://www.survivalservers.com/services/game_servers/probably_stolen/?utm_source=github&utm_medium=readme_install&utm_campaign=accomplice) runs Probably Stolen servers with Accomplice installed and ready to join.
+[SurvivalServers.com](https://www.survivalservers.com/services/game_servers/probably_stolen/?utm_source=github&utm_medium=readme_install&utm_campaign=accomplice) runs Probably Stolen servers with Accomplice installed.
 
 ## How to join
 
@@ -31,13 +31,13 @@ Every player needs their own copy of Probably Stolen.
 
    ![The game's Mods window with Accomplice selected](docs/images/mods-activate.png)
 
-3. Click **Join server** on the main menu, then **Server list**, and click a server to join it. Or type the server's address and password and click **Join**.
+3. Click **Join server** on the main menu, then **Server list**, and click a server to join it. Or type the server's IP and port, and the password if it has one, then click **Join**.
 
    <img src="docs/images/join-server.png" width="440" alt="The Join server window">
 
-   To invite a friend, press Esc on the server and click **Copy invite**: it copies the address, never the password.
+   To invite a friend, press Esc on the server and click **Copy invite**: it copies the server's IP and port, never the password.
 
-The mod's windows follow the game's language (Chinese and Russian so far; English otherwise).
+The mod's windows follow the game's language: Chinese and Russian so far, and English for the rest.
 
 ## Host your own
 
@@ -60,17 +60,17 @@ You need a Windows PC that players can reach (a public IP and one open TCP port,
 
 5. Allow the port through Windows Firewall, and forward it on your router if the PC is behind one. Players join with your public IP and the port.
 
-Scenario, difficulty, voice chat, saves and backups: [docs/settings.md](docs/settings.md). Commands and status: [docs/status-and-commands.md](docs/status-and-commands.md).
+Scenario, difficulty, voice chat, saves and backups are in [docs/settings.md](docs/settings.md). Commands and the status check are in [docs/status-and-commands.md](docs/status-and-commands.md).
 
 ## Server list
 
-Every Accomplice server shows up in the in-game server list by itself, with its name, players and day, and players click a server to join it. The address is public, so set a password if the shop is only for your group: password servers show a lock, and the list never shows player names. Servers on another version are listed too, dimmed.
+Every Accomplice server shows up in the in-game Server list by itself, with its name, players and day, and players click a server to join it. Its IP and port are public, so set a password if the shop is only for your group. A server with a password shows a lock, and the list never shows player names. Servers on another version are listed too, dimmed.
 
 ![The in-game Server list](docs/images/server-list.png)
 
 ## Updating
 
-Download the new zip from [Releases](https://github.com/HumanGenome/AccompliceServer/releases/latest) and unzip it over the old files. Players' copies of the mod update through Steam and don't have to match the server's version exactly; when one can't join, the Join window says what to update. Each release's notes link a VirusTotal scan of its mod file.
+Download the new zip from [Releases](https://github.com/HumanGenome/AccompliceServer/releases/latest) and unzip it over the old files. Players' copies of the mod update through Steam and don't have to match the server's version exactly. When a player can't join, the Join window says what to update. Each release's notes link a VirusTotal scan of its mod file.
 
 When Probably Stolen itself updates, update the game on the server PC too: players and the server need the same game version.
 

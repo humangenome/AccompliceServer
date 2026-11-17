@@ -12,9 +12,9 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 #### Added
 
-- When the server turns down something you pressed, you now see why.
-- If one of your mods breaks a machine's buttons, you're told once which mod and how to fix it.
-- If your microphone sends silence, you get a one-time hint on what to check.
+- When the server says no to something you clicked, you now see why on screen, for example "Mara is at the counter."
+- If a mod the server doesn't run changes a machine's buttons, you're told once which mod it is and how to turn it off.
+- If your microphone sends only silence, you're told once to check the Windows microphone settings.
 
 ## [0.2.12] - 2026-11-09
 
