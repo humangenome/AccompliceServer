@@ -9,10 +9,13 @@
 # a broken install for everyone who takes it.
 #
 # Checks: the file name; checksums.txt (one sha256sum line, for this zip);
-# exactly the five entries of the contract and nothing else; the manifest's
+# exactly the entries of the contract and nothing else; the manifest's
 # id, version and single assembly; accomplice-server.json's name, version,
 # and the size and SHA-256 of every file it lists; README.txt names the
-# version and has no unfilled placeholder.
+# version and has no unfilled placeholder; the licence notices: LICENSE.txt is
+# this repository's LICENSE word for word (required from 0.2.14 on; every zip
+# up to 0.2.13 shipped without it) and THIRD-PARTY-NOTICES.txt carries the
+# Concentus licence.
 #
 # Usage:
 #   tools/ci/verify-server-zip.sh <zip> <version> [checksums.txt]
@@ -33,11 +36,13 @@ fi
 [[ -z ${sums} || -f ${sums} ]] || { echo "verify-server-zip: missing ${sums}" >&2; exit 1; }
 [[ ${version} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "verify-server-zip: version '${version}' is not MAJOR.MINOR.PATCH" >&2; exit 2; }
 
-python3 -I - "${zip}" "${version}" "${sums}" <<'PY'
+repo_root=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+
+python3 -I - "${zip}" "${version}" "${sums}" "${repo_root}/LICENSE" <<'PY'
 import hashlib, json, os, re, sys, zipfile
 import xml.etree.ElementTree as ET
 
-zip_path, version, sums_path = sys.argv[1], sys.argv[2], sys.argv[3]
+zip_path, version, sums_path, licence_path = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
 problems = []
 def fail(msg):
     problems.append(msg)
@@ -75,6 +80,10 @@ contract = {
     "THIRD-PARTY-NOTICES.txt",
     "accomplice-server.json",
 }
+# Our MIT licence goes with every copy. Zips up to 0.2.13 shipped without it, so for those it is
+# allowed but not required; from 0.2.14 on a zip without it is refused.
+LICENCE_FROM = (0, 2, 14)
+licence_required = tuple(int(x) for x in version.split(".")) >= LICENCE_FROM
 try:
     z = zipfile.ZipFile(zip_path)
 except zipfile.BadZipFile as e:
@@ -82,6 +91,8 @@ except zipfile.BadZipFile as e:
     sys.exit(1)
 
 names = z.namelist()
+if "LICENSE.txt" in names or licence_required:
+    contract.add("LICENSE.txt")
 if len(names) != len(set(names)):
     fail("the zip lists an entry twice")
 for n in names:
@@ -152,6 +163,19 @@ if info:
         fail("accomplice-server.json fingerprint.manifest is not the manifest's SHA-256")
     if fp.get("files") != ["Accomplice.dll|" + sha["Mods/Accomplice/Accomplice.dll"]]:
         fail("accomplice-server.json fingerprint.files is not the DLL's SHA-256")
+
+# ------------ licence notices
+
+def norm(b):
+    return b.decode("utf-8-sig", errors="replace").replace("\r\n", "\n").strip()
+
+if "LICENSE.txt" in data:
+    with open(licence_path, "rb") as f:
+        if norm(data["LICENSE.txt"]) != norm(f.read()):
+            fail("LICENSE.txt is not this repository's LICENSE")
+notices = norm(data["THIRD-PARTY-NOTICES.txt"])
+if "concentus" not in notices.lower() or "Redistributions in binary form must reproduce the above copyright notice" not in notices:
+    fail("THIRD-PARTY-NOTICES.txt does not carry the Concentus licence")
 
 # ------------ README.txt
 
