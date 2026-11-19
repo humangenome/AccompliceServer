@@ -42,6 +42,8 @@ The server reads the `server.json` named by `--br-config`. This example holds ev
 | `modsMustMatch` | `true` also turns away players who run mods the server doesn't, or another copy of one of its mods. `false` lets them join with a warning |
 | `mods` | Each of your other mods' Workshop ids, `[ { "id": "<mod ID from its manifest.xml>", "ws": "<Workshop id>" } ]`, so a player who lacks one gets a button to its Workshop page |
 
+If a value cannot be read as written (text where a number belongs, a missing comma), the server does not start and its log names the setting.
+
 `newRun` and `endless` are used when the save in `saveSlot` doesn't exist yet and whenever a new run starts. The server reads them from the file again at that moment, so you can change them while it runs.
 
 Scenarios: `APPRENTICE`, `WATER_MERCHANT`, `FENCE`, `ROCK_BOTTOM`, `FARMER` (Hydroponic Farmer), `GUNSMITH`, `DRUG_DEALER` (Chemist), `RANCHER`, `AQUAFARMER`. These nine are the only ones the server starts. The game marks its other scenarios as coming soon, and the server won't start them.

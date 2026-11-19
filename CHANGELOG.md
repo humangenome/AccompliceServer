@@ -6,6 +6,35 @@ Each version is split into **Server** (AccompliceServer, the Accomplice mod runn
 
 ## [Unreleased]
 
+## [0.2.14] - 2026-11-19
+
+Fewer shop reloads: looking at the Clientele board before opening, or coming back from a night out with the same items in another order, no longer reloads your shop. A mod that adds buttons to a machine no longer makes players press the wrong button. Joining a wrong address now tells you so.
+
+### Server
+
+#### Added
+
+- A server now limits how often one address can try to join.
+- If a value in server.json cannot be read as written (text where a number belongs, a missing comma), the server does not start and its log names the setting.
+- If a game update removes something Accomplice needs, the server does not start and its log says to update Accomplice.
+
+#### Fixed
+
+- If server.json names a starting scenario the game doesn't have, the server no longer quietly starts a different one: it says why in its log and starts no new run.
+
+### Client
+
+#### Changed
+
+- Joining an address that isn't an Accomplice server, or that never answers, now ends with a plain message saying so.
+
+#### Fixed
+
+- Looking at the Clientele board before opening no longer makes your shop reload when the shutter goes up.
+- Your shop no longer reloads after a night-out step when your bag holds the same items in a different order.
+- A player whose mod adds buttons to a machine, like a radio mod on the cassette player, no longer presses the wrong button for everyone.
+- If your shop still differs from the server after 3 reloads, it no longer keeps reloading every 30 seconds.
+
 ## [0.2.13] - 2026-11-09
 
 ### Client

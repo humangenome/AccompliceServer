@@ -27,6 +27,7 @@ A line the server doesn't know logs `-> unknown command` and does nothing.
 | `[Accomplice] server: listening on TCP <port>` | Players can connect |
 | `[Accomplice] server: could not listen on TCP <port>` | Another program is using the port, and the server stops |
 | `[Accomplice] server: could not open the save` | The save wouldn't load, and the server stops |
+| `[Accomplice] server: could not start: <why>` | A server.json setting, or a game update this version is not made for; it stops |
 | `[Accomplice] server: run ended (<ending>)` | The run ended |
 | `[Accomplice] server: new run started (<scenario>)` | A new run began |
 | `[Accomplice] command: <line> -> <result>` | One per `commands.txt` line |
