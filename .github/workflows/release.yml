@@ -10,12 +10,15 @@ on:
         description: "Tag to build the release body for (e.g. v0.1.0)"
         required: true
 
+# Read-only by default; only the job that touches this repo's release may write contents.
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     # The tag reaches the shell only through this variable, always quoted. Git
     # allows $, ( ), ;, & and backticks in a tag name, and the form input takes
     # any text, so the tag is never written into a script line.
@@ -34,7 +37,7 @@ jobs:
           fi
           echo "tag ${TAG} is a release version"
 
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       # The tag must equal the version stamped in the build and the CHANGELOG.
       # Three siblings published a release whose binary reported a different
@@ -52,42 +55,34 @@ jobs:
 
       # This repo carries no server source: AccompliceServer is the Accomplice
       # mod running in server mode, packaged in the private build repo. The
-      # release owner creates the release with AccompliceServer-<version>.zip
-      # and checksums.txt attached. If it does not exist yet, it is created here as a draft so
-      # nobody can download a release page that has nothing on it.
-      #
-      # Skipped when the release already exists: the release owner may create
-      # the release first (correct author, assets attached) and push the tag
-      # through it, in which case this workflow's job is only to gate the
-      # version, body, and author, not to create a second release.
-      - name: Create draft release
+      # release owner makes the release BY HAND as humangenome first (a draft
+      # with AccompliceServer-<version>.zip and checksums.txt attached, notes =
+      # the CHANGELOG section), then pushes the tag; this job only checks it.
+      # It runs on the workflow's own token (Security 2026-11-25), so a release
+      # it made itself would be authored github-actions[bot] (immutable once
+      # published); it therefore never creates one.
+      - name: Require the release made by hand
         env:
-          # HUMANGENOME_PAT makes the release object authored by HumanGenome.
-          # With the default token it is authored github-actions[bot], and the
-          # author field is immutable once published.
-          GH_TOKEN: ${{ secrets.HUMANGENOME_PAT || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if gh release view "${TAG}" --json name >/dev/null 2>&1; then
-            echo "release ${TAG} already exists; leaving it as-is"
-          else
-            gh release create "${TAG}" \
-              --title "${TAG}" \
-              --notes-file release-body.md \
-              --draft
+          if ! gh release view "${TAG}" --json name >/dev/null 2>&1; then
+            echo "::error::there is no release ${TAG} yet. Make it by hand as humangenome first (gh release create ${TAG} --draft --title ${TAG} --notes-file <its CHANGELOG section>, attach the zip and checksums.txt), then re-run this workflow."
+            exit 1
           fi
+          echo "release ${TAG} exists"
 
       - name: Assert release author
         env:
-          GH_TOKEN: ${{ secrets.HUMANGENOME_PAT || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           AUTHOR=$(gh release view "${TAG}" --json author --jq .author.login)
           echo "release author: ${AUTHOR}"
           # Case-insensitive: the account's login is lowercase 'humangenome'
           # while the display name is 'HumanGenome', and GitHub logins are not
-          # case-sensitive. The failure this guards against is the release
-          # being authored github-actions[bot], which no casing rescues.
+          # case-sensitive. The failure this guards against is a release made
+          # by a workflow token (github-actions[bot]), which no casing rescues.
           if [ "$(echo "${AUTHOR}" | tr '[:upper:]' '[:lower:]')" != "humangenome" ]; then
-            echo "::error::release is authored '${AUTHOR}', expected HumanGenome: set the HUMANGENOME_PAT secret"
+            echo "::error::release is authored '${AUTHOR}', expected HumanGenome: the release must be made by hand as humangenome before the tag (a release made by a workflow token is authored github-actions[bot])"
             exit 1
           fi
 
@@ -95,7 +90,7 @@ jobs:
       # drifts from it, so the published body must equal the extracted one.
       - name: Assert release body matches CHANGELOG
         env:
-          GH_TOKEN: ${{ secrets.HUMANGENOME_PAT || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           published=$(gh release view "${TAG}" --json body --jq .body | tr -d '\r' | sed -e 's/[[:space:]]*$//')
           expected=$(sed -e 's/[[:space:]]*$//' release-body.md)
@@ -108,10 +103,10 @@ jobs:
 
       # Hosts install the zip on this release by its name and hash. When the
       # release owner attached the files before pushing the tag, they are
-      # checked here against the tag and the bundle contract. A draft created
-      # above has none yet; the Checks workflow checks the latest published
+      # checked here against the tag and the bundle contract. A draft without
+      # them yet passes (--allow-none); the Checks workflow checks the latest published
       # release every day, which covers files attached by hand later.
       - name: Check the attached server zip
         env:
-          GH_TOKEN: ${{ secrets.HUMANGENOME_PAT || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: tools/ci/check-release-assets.sh "${TAG}" --allow-none
